@@ -36,6 +36,65 @@
 
 <p>Some notes I am making as I go along learning Laravel. 
 Based on various sources like the <a href="http://laravel.com/docs">official docs</a> and Dayle Reese's great <a href="http://codehappy.daylerees.com/">Code Happy tutorial</a></p>
+
+<hr><h2>
+<a name="contents" class="anchor" href="#contents"><span class="octicon octicon-link"></span></a>Contents</h2>
+
+<p><a href="#views">Views</a>   </p>
+
+<h2>
+<a name="views" class="anchor" href="#views"><span class="octicon octicon-link"></span></a><a></a>Views</h2>
+
+<p>Views typically contain the HTML of your application and provide a convenient way of separating your controller and domain logic from your presentation logic. Views are stored in the app/views directory.</p>
+
+<p>A simple view could look something like this (using no templating):</p>
+
+<pre><code>&lt;!-- View stored in app/views/greeting.php --&gt;
+
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello, &lt;?php echo $name; ?&gt;&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>or like this (using the blade templating provided by Laravel):</p>
+
+<pre><code>&lt;!-- View stored in app/views/greeting.blade.php --&gt;
+
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Hello, {{ $name; }}&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Notice the view using Blade templating has the extension <code>.blade.php</code> and it outputs variables simply using double curly braces <code>{{ $name }}</code> as opposed to regular php output <code>&lt;?php echo $name; ?&gt;</code>.</p>
+
+<p>This view may be returned to the browser like so:</p>
+
+<pre><code>Route::get('/', function()
+{
+    return View::make('greeting', array('name' =&gt; 'Taylor'));
+});
+</code></pre>
+
+<p>The second argument passed to <code>View::make</code> is an array of data that should be made available to the view.</p>
+
+<h3>
+<a name="methods-of-passing-data-to-views" class="anchor" href="#methods-of-passing-data-to-views"><span class="octicon octicon-link"></span></a>Methods of Passing Data To Views</h3>
+
+<pre><code>// Pass an array of variableName =&gt; variableValue pairs
+// to make()
+$view = View::make('greeting', $data); 
+</code></pre>
+
+<p>or</p>
+
+<pre><code>// Use with the "with" method which accepts a variable name
+// and value or an array of variable name/value pairs
+$view = View::make('greeting')-&gt;with('name', 'Steve');
+</code></pre>
         </section>
 
         <footer>
