@@ -1,4 +1,5 @@
 laravel-4-tutorial
 ==================
 
-Laravel 4 Tutorial Based on Dayle Reese's great web based Code Happy tutorial - http://codehappy.daylerees.com/
+Some notes I am making as I go along learning Laravel. 
+Based on various sources like the [official docs](http://laravel.com/docs) and Dayle Reese's great [Code Happy tutorial](http://codehappy.daylerees.com/)
