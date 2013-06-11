@@ -1,4 +1,4 @@
-laravel-4-tutorial
+Laravel 4 Notes
 ==================
 
 Some notes I am making as I go along learning Laravel. 
