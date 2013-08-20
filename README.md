@@ -6,9 +6,12 @@ Based on various sources like the [official docs](http://laravel.com/docs) and D
 
 ----------
 
-## Contents ##
-[Views](#views)   
-  
+- [Views](#views)
+- [Blade Templating](#templates)
+- [Schema Builder](#schema)
+
+----------
+
 
 
 ## <a id="views"></a>Views ##
@@ -58,4 +61,22 @@ or
 	// and value or an array of variable name/value pairs
     $view = View::make('greeting')->with('name', 'Steve');
     
- 
+<br>
+## <a id="templates"></a>Blade Templating
+
+### Including Sub-views
+
+`@include('child.view')`
+
+Simply place this `@include` statement in your view where ever you would like the child or view partial to be included.
+
+
+<br>
+## <a id="schema"></a>Schema Builder
+
+###Table Builder Column Types
+
+$table->increments('id');	
+`Incrementing ID (INT) to the table (primary key).`
+$table->bigIncrements('id');
+`Incrementing ID (BIGINT) to the table (primary key).`
